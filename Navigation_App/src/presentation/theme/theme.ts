@@ -32,4 +32,8 @@ export const globalStyles = StyleSheet.create({
         color: globalColors.background,
         fontSize: 18,
     },
+    icon: {
+        color: globalColors.primary,
+        fontSize: 20,
+    },
 });

@@ -21,3 +21,10 @@ npx expo install react-native-gesture-handler
 npm install @react-navigation/drawer
 npx expo install react-native-gesture-handler react-native-reanimated
 ```
+
+4. Instalar Iconos.
+
+```npm
+npm install --save react-native-vector-icons
+npm install --save-dev @types/react-native-vector-icons
+```

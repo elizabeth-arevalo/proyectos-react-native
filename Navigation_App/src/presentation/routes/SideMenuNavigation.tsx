@@ -1,8 +1,9 @@
 import { View, useWindowDimensions } from "react-native";
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
-import { StackNavigator } from "./StackNavigator";
+import { BottomTapNavigator } from "./BottonTabsNavigator";
 import { ProfileScreen } from "../screens/profile/ProfileScreen";
-import { globalColors } from "../theme/theme";
+import { globalColors, globalStyles } from "../theme/theme";
+import { IonIcon } from "../components/shared/IonIcon";
 
 const Drawer = createDrawerNavigator();
 
@@ -26,8 +27,10 @@ export const SideMenuNavigator = () => {
                 },
             }}
         >
-            <Drawer.Screen name="StackNavigator" component={StackNavigator} />
-            <Drawer.Screen name="Profile" component={ProfileScreen} />
+            {/* <Drawer.Screen name="StackNavigator" component={StackNavigator} /> */}
+            <Drawer.Screen options={{ drawerIcon: ({ color }) => <IonIcon name="newspaper-outline" color={color} /> }} name="Tabs" component={BottomTapNavigator} />
+
+            <Drawer.Screen options={{ drawerIcon: ({ color }) => <IonIcon name="person-circle-outline" color={color} /> }} name="Profile" component={ProfileScreen} />
         </Drawer.Navigator>
     );
 };
@@ -41,8 +44,13 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
                     backgroundColor: globalColors.primary,
                     margin: 30,
                     borderRadius: 50,
+                    alignItems: "center", // vertical
+                    justifyContent: "center", //horizontal
+                    flexDirection: "row",
                 }}
-            />
+            >
+                <IonIcon name="person-outline" color="white" size={100} />
+            </View>
 
             <DrawerItemList {...props} />
         </DrawerContentScrollView>
