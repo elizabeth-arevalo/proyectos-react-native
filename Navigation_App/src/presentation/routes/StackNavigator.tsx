@@ -25,8 +25,10 @@ export const StackNavigator = () => {
             }}
         >
             <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Products" component={ProductsScreen} />
+
             <Stack.Screen name="Product" component={ProductScreen} />
+            <Stack.Screen name="Products" component={ProductsScreen} />
+
             <Stack.Screen name="Settings" component={SettingsScreen} />
         </Stack.Navigator>
     );
