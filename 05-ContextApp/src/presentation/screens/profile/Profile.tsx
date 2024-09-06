@@ -8,7 +8,6 @@ export const ProfileScreen = () => {
     const name = useProfileStore((state) => state.name);
     const email = useProfileStore((state) => state.email);
     const changeProfile = useProfileStore((state) => state.changeProfile);
-    const count = useCounterStore((state) => state.count);
 
     return (
         <View style={styles.container}>
@@ -18,7 +17,6 @@ export const ProfileScreen = () => {
             <PrimaryButton label="Cambiar el nombre" onPress={() => useProfileStore.setState({ name: "Elizabeth Arevalo" })} />
             <PrimaryButton label="Cambiar el email" onPress={() => useProfileStore.setState({ email: "elizabeth.arevalo@example.com" })} />
             <PrimaryButton label="Cambiar el regresar a Jonh" onPress={() => changeProfile("Jonh Doe", "jonh.doe@example.com")} />
-            <Text>Count Screen: {count}</Text>
         </View>
     );
 };
