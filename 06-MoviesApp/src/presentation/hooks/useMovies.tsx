@@ -3,6 +3,11 @@ import { Movie } from '../../core/entities/movie.entitie'
 import * as UseCases from '../../core/use-cases'
 import { movieDBFetcher } from '../../config/adapters/movieDB.adapter'
 
+let nowPlayingNextPage =1;
+let popularPageNumber =1;
+let topRatedNextPage =1;
+let upComingNextPage =1;
+
 export const useMovies = () => {
     const [isLoading, setisLoading] = useState(true);
     const [nowPlaying, setNowPlaying] = useState<Movie[]>([]);
@@ -54,6 +59,42 @@ export const useMovies = () => {
     nowPlaying,
     popular,
     topRated,
-    upcoming
+    upcoming,
+
+    //methods
+    nowPlayingNextPage: async() => {
+      nowPlayingNextPage++;
+      const nowPlayingMovies = await UseCases.moviesNowPlayingUseCase( movieDBFetcher, {
+        page: nowPlayingNextPage,
+      } );
+
+      setNowPlaying(prev => [...prev, ...nowPlayingMovies ]);
+    },
+
+    popularNextPage: async() => {
+      popularPageNumber++;
+      const popularMovies = await UseCases.moviesPopularUseCase( movieDBFetcher, {
+        page: popularPageNumber,
+      } );
+
+      setPopular(prev => [...prev, ...popularMovies ]);
+    },
+    topRatedNextPage: async() => {
+      topRatedNextPage++;
+      const topRatedMovies = await UseCases.moviesTopRatedUseCase( movieDBFetcher, {
+        page: topRatedNextPage,
+      } );
+
+      setTopRated(prev => [...prev, ...topRatedMovies ]);
+    },
+    upComingNextPage: async() => {
+      upComingNextPage++;
+      const upComingMovies = await UseCases.moviesUpcomingUseCase( movieDBFetcher, {
+        page: upComingNextPage,
+      } );
+
+      setUpcoming(prev => [...prev, ...upComingMovies ]);
+    },
+    
   };
 };

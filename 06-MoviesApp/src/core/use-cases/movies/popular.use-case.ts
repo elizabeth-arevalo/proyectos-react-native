@@ -3,9 +3,19 @@ import { MovieDBMovieResponse } from "../../../infraestructure/interfaces/movie-
 import { MovieMapper } from "../../../infraestructure/mappers/movie.mapper";
 import type { Movie } from "../../entities/movie.entitie";
 
-export const moviesPopularUseCase = async (fetcher: HttpAdapter): Promise<Movie[]> => {
+interface Options{
+    page?: number;
+    limit?: number;
+}
+
+export const moviesPopularUseCase = async (fetcher: HttpAdapter, options?: Options): Promise<Movie[]> => {
     try {
-        const popular = await fetcher.get<MovieDBMovieResponse>("/popular");
+        const popular = await fetcher.get<MovieDBMovieResponse>("/popular", {
+            params: {
+                page: options?.page ?? 1,
+                limit: options?.limit
+            }
+        });
 
         // return popular.results.map(result=> MovieMapper.fromMovieDBResultToEntity(result))
         return popular.results.map( MovieMapper.fromMovieDBResultToEntity );
