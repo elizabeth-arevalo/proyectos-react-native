@@ -19,6 +19,32 @@ export const styles = StyleSheet.create({
         padding: 16,
     },
 
+    loaderStyle: {
+      flex: 1,
+      justifyContent: 'center',
+      alignContent: 'center',
+      backgroundColor: colors.background
+    },
+
+    actorConteiner: {
+      marginRight: 10,
+      marginLeft: 10,
+      display: 'flex',
+      flexDirection: 'column',
+      width: 100
+    },
+
+    actorImage: {
+      width: 100,
+      height: 150,
+      borderRadius: 10
+    },
+
+    actorInfo: {
+      marginLeft: 10,
+      marginTop: 4
+    },
+
     backgroudCard: {
       color: colors.textPrimary,
       backgroundColor: colors.cardBackground

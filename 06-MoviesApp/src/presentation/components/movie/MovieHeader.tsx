@@ -14,7 +14,7 @@ export const MovieHeader = ({poster, originalTitle, title}: Props) => {
     const {height: screenHeight} =useWindowDimensions();
     const navigation = useNavigation();
   return (
-    <View style={{...styles.imageContainer, height: screenHeight * .7}}>
+    <View style={{...styles.imagePoster, height: screenHeight * .7}}>
         <View style={styles.imageBorder}>
             <Image style={styles.imagePoster} source={{ uri: poster }}/>
         </View>   
