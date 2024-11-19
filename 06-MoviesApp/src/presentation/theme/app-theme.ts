@@ -9,6 +9,7 @@ export const colors = {
     textSecondary: "#BBBBBB",
     background: "#1a1a1a",
     cardBackground: "#333333",
+    black: '#000'
 };
 
 export const styles = StyleSheet.create({
@@ -16,6 +17,11 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.background,
         padding: 16,
+    },
+
+    backgroudCard: {
+      color: colors.textPrimary,
+      backgroundColor: colors.cardBackground
     },
 
     imagePoster: {
@@ -43,10 +49,17 @@ export const styles = StyleSheet.create({
 
     textPrimary: {
         color: colors.textPrimary,
-        fontSize: 18,
-        fontWeight: "600",
+        fontSize: 23,
+        fontWeight: 'bold',
         textAlign: "center",
     },
+
+    text: {
+      color: colors.textPrimary,
+      fontSize: 16,
+      fontWeight: '600',
+      textAlign: "justify",
+  },
 
     textSecondary: {
         color: colors.textSecondary,
@@ -77,7 +90,8 @@ export const styles = StyleSheet.create({
     },
     imageContainer: {
         width: '100%',
-        shadowColor: '#000',
+        backgroundColor: colors.background,
+        shadowColor: colors.lightGray,
         shadowOffset: {
           width: 0,
           height: 10,
